@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<title>添加管理员 - 管理员管理 - H-ui.admin v3.1</title>
+<meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+<meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+<article class="page-container">
+	
+		<div class="form form-horizontal" id="form-admin-add">
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员账号：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="账号" id="adminName" name="adminName" disabled="disabled">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+		</div>
+	</div>
+	
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员昵称：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="昵称" id="adminName1" name="adminName1" >
+		</div>
+	</div>
+
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="手机号码" id="phone" name="phone">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" placeholder="@邮箱" name="email" id="email">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3">角色：</label>
+		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+			<select class="select" name="adminRole" size="1" id="sel">
+				<option value="超级管理员">超级管理员</option>
+				<option value="普通管理员">普通管理员</option>
+			</select>
+			</span> </div>
+	</div> 
+   <div class="row cl"> 
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例图片：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="uploader-list-container" style="height: 120px">
+					<div class="queueList"> 
+						    <form id="form1" enctype="multipart/form-data"> 
+						    	<div id="divc"> 	
+									  
+						    	</div>  
+						    	   
+						    	<div class="divd"> 
+						    		<label for="file1"  ><img src="img/load_img.png"  style="width: 80px;height: 80px;" id="imgsrc"></label>
+									
+							    </div>	
+							    
+								<input type="file" id="file1" name="file1" style="position: relative; top: -999em;"  class="inputc">
+						       
+								 
+							    <button id="btn1"  style="margin-top: 70px">提交</button>
+							</form>
+				    
+				     
+						</div>
+				    
+					</div> 
+		 			
+			</div>
+	</div>
+	<div class="row cl"> 
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="btn">
+		</div>
+	</div> 
+	</div>
+</article> 
+ 
+<!--_footer 作为公共模版分离出去--> 
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="js/jquery.form.js" ></script>
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-admin-add").validate({
+		rules:{
+			adminName:{
+				required:true,
+				minlength:4,
+				maxlength:16
+			},
+			password:{
+				required:true,
+			},
+			password2:{
+				required:true,
+				equalTo: "#password"
+			},
+			sex:{
+				required:true,
+			},
+			phone:{
+				required:true,
+				isPhone:true,
+			},
+			email:{
+				required:true,
+				email:true,
+			},
+			adminRole:{
+				required:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+				type: 'post',
+				url: "xxxxxxx" ,
+				success: function(data){
+					layer.msg('添加成功!',{icon:1,time:1000});
+				},
+                error: function(XmlHttpRequest, textStatus, errorThrown){
+					layer.msg('error!',{icon:1,time:1000});
+				}
+			});
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
+
+
+var adminid=localStorage.getItem('adminid'); //当前操作对象的id号
+
+var role=localStorage.getItem('role');      //当前管理员的权限
+var request_url=localStorage.getItem('request_url'); 
+var login_url=localStorage.getItem('login_url');
+var input=document.getElementsByTagName('input');
+var btn=document.getElementById('btn');
+var divc=document.getElementById('divc');
+var divd=document.getElementsByClassName('divd');
+var inputc=document.getElementsByClassName('inputc')
+var imgsrc=document.getElementById('imgsrc');
+var uploadimgs='[]';  
+var z=1;  
+for(var i=0;i<inputc.length;i++){        //图片预览
+		 inputc[i].onchange = function() {
+		 	var imgFile = this.files[0];
+	       // console.log(imgFile);
+	        var fr = new FileReader();  
+	        fr.onload = function() {    
+	        	
+	           divc.innerHTML='<div  style="width:80px;height:80px; background:#CCCCCC;float: left;">'
+							+    '<img src="'+fr.result+'" height="80px" width="80px" border="5px"/>'
+							+'</div> '  
+					        +divc.innerHTML
+				for (i=0;i<divd.length;i++) {
+					divd[i].style.display='none';
+				}	
+				
+			    if (z<divd.length) {
+					divd[z].style.display=''
+				} 
+				z=z+1;	         
+					        
+	        }; 
+	        fr.readAsDataURL(imgFile);
+	       
+	    }
+  } 
+if (adminid) {
+	
+	if (role=='普通管理员') { 
+		 document.getElementById("sel").disabled='disabled';
+		 
+	}
+	$.ajax({  
+							type: "POST",         //获取当前账户的权限
+							url: request_url + "/Admin/update_query",   
+							data: {         
+							    adminid_data:adminid,
+							 
+						 },                
+							async: true,     
+							success: function(data) {    
+								json = JSON.parse(data);  
+                            
+                                input[0].value=json.account;
+                                input[1].value=json.password;
+                                input[2].value=json.name;
+                                input[3].value=json.phone;
+                                input[4].value=json.mail;     
+                                imgsrc.src=login_url+'/admin/'+json.img
+                                
+                               if (json.role=='超级管理员') {
+                               	 document.getElementById("sel")[0].selected=true;
+                               }else{
+                               	 document.getElementById("sel")[1].selected=true;
+                               }
+                               
+							}  
+							                   
+	});  
+}
+
+btn.addEventListener('click',function(){
+	if (!input[1].value) {
+		$.Huimodalalert('密码不能为空',2000)
+		
+	}else if (!input[3].value) {
+		$.Huimodalalert('手机号码不能为空',2000)
+	
+	}else if (!input[2].value) {
+		$.Huimodalalert('名字不能为空',2000)
+		
+	}else if (!input[0].value) {
+		$.Huimodalalert('账号不能为空',2000)
+		
+	}else if (!input[4].value) {
+		$.Huimodalalert('邮箱不能为空',2000)
+		
+	}else if(uploadimgs=='[]'){ 
+		$.Huimodalalert('图片未上传',2000)
+	}else{
+		 
+		  $.ajax({  
+							type: "POST",         //修改当前页面内容
+							url: request_url + "/Admin/update",   
+							data: {         
+							    id_data:adminid,
+							    password_data:input[1].value, 
+							    name_data:input[2].value, 
+							    phone_data:input[3].value,
+							    mail_data:input[4].value, 
+							    uploadimgs_data:uploadimgs,     //图片 
+							    role_data:document.getElementById("sel").value,
+						},                  
+							async: true,     
+							success: function(data) {    
+								//json = JSON.parse(data);  
+                              if (data==1) {
+                              	$.Huimodalalert('修改成功',2000)
+                              	
+                              	  	  parent.window.location.href="admin-list.html"; //刷新父窗口
+                              }else{
+                              
+                              	$.Huimodalalert('未修改或修改失败',2000)
+                              }
+							}  
+							                   
+			}); 
+		
+		
+		
+	}
+})
+  
+$('#btn1').on('click', function() {
+	
+    $('#form1').on('submit', function() {
+      
+        $(this).ajaxSubmit({
+            type: 'post', // 提交方式 get/post
+            url: 'chuliadmin.php', // 需要提交的 url
+            success: function(data) { // data 保存提交后返回的数据，一般为 json 数据
+                 console.log(data)
+                 json = JSON.parse(data);  
+                uploadimgs=json[0]; 
+                console.log(uploadimgs)
+                $.Huimodalalert('提交成功',2000)
+                 
+            }
+          
+        });
+        return false; // 阻止表单自动提交事件，必须返回false，否则表单会自己再做一次提交操作，并且页面跳转
+   
+    });
+}); 
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html> 

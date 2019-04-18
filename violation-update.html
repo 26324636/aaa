@@ -1,0 +1,413 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<link href="lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+</head> 
+<!-- <body onload="init()"> -->
+<body>    
+	<style>         
+		.cl{  
+			margin-top: 10px !important;
+		}      
+		.divd{
+			float: left;
+		}
+		#container{
+    min-width:300px;
+    min-height:400px; 
+   /* position: absolute;*/
+}
+	</style> 
+	
+<div class="page-container" style="position: relative;">
+	 <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>ID号：</label>
+		<div class="formControls col-xs-8 col-sm-9">  
+			<input type="text" class="input-text input_id" value="" placeholder="ID号" disabled="disabled">
+		</div> 
+	</div> 
+	   <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>管理员ID：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text input_id" value="" placeholder="管理员ID号" disabled="disabled">
+		</div> 
+	</div> 
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>车牌号：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text input_id" value="" placeholder="车牌号">
+		</div> 
+	</div> 
+	<div class="row cl"> 
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>位置：</label>
+		<div class="formControls col-xs-8 col-sm-9">   
+			<input type="text" class="input-text input_id" value="" placeholder="位置">
+		</div> 
+	</div>      
+	
+	    
+	 
+
+     <div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>违规类型：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<select name="" class="select select_classify input-text" id="type" >
+				   
+					 
+				</select>
+		</div> 
+	</div>   
+       <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>多图上传：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="uploader-list-container" style="height: 120px">
+					<div class="queueList"> 
+						    <form id="form" enctype="multipart/form-data"> 
+						    	<div id="divc"> 	
+								</div>  
+						    	   
+						    	<div class="divd"> 
+						    		<label for="file"  ><img src="img/load_img.png"  style="width: 80px;height: 80px;" id="imgsrc"></label>
+								</div>	
+							 	               
+							   <input picType="affairs" id="file" name="files" type="file" multiple="multiple" style="position: relative; top: -999em;"  class="inputc">
+						       <button id="btn1"  >提交</button>
+						     
+							</form>   
+				    
+				     
+						</div>
+				    
+					</div> 
+					
+				</div>   
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button  class="btn btn-primary radius" id="btn"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div> 
+		</div> 
+	
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp"></script>
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"></script>
+ <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="js/jquery.form.js" ></script>
+<script type="text/javascript" src="js/ajaxFileUpload.js"></script>
+
+<script type="text/javascript"> 
+	
+var z=0;       
+var json2=new Array(); 
+var json3=new Array();   
+var imgsrc=document.getElementById('imgsrc')
+var violation_car=localStorage.getItem('violation_car');  
+var violation_id=localStorage.getItem('violation_id');   
+var accessToken=localStorage.getItem('accessToken');    //管理员登录态
+var adminid=localStorage.getItem('adminid');            //管理员id
+var request_url=localStorage.getItem('request_url');    //请求地址     
+var input=document.getElementsByTagName('input');
+var btn=document.getElementById('btn');
+var  input_id=document.getElementsByClassName('input_id');
+var divc=document.getElementById('divc');
+var divd=document.getElementsByClassName('divd');
+var inputc=document.getElementsByClassName('inputc')
+var uploadimgs=new Array();
+var imgsrc=document.getElementById('imgsrc')
+var type=document.getElementById('type');
+function update(id){  
+		       
+        json1.splice(id,1,'null'); 
+        json2=json1;
+        shuzuchangdu=uploadimgs.length;
+        divd[0].style.display=''
+	$("#updatec"+id).remove();//清空select列表数据
+	z=z-1;  
+	
+
+	    
+	  
+	  
+}
+           
+  	for(var i=0;i<inputc.length;i++){        //图片预览
+		 inputc[i].onchange = function() {
+		 	var imgFile = this.files[0];
+	       // console.log(imgFile);
+	        var fr = new FileReader();  
+	        fr.onload = function() {  
+	        	    
+	           divc.innerHTML='<div  style="width:80px;height:80px; background:#CCCCCC;float: left;">'
+							+    '<img src="'+fr.result+'" height="80px" width="80px" border="5px"/>'
+							+'</div> '
+					        +divc.innerHTML     
+				for (i=0;i<divd.length;i++) {
+					divd[i].style.display='none';
+				}	
+				
+			    if (z<divd.length) {
+					divd[z].style.display=''
+				} 
+				z=z+1;	         
+					        
+	        }; 
+	        fr.readAsDataURL(imgFile);
+	       
+	    }
+   }                  
+  
+var loadimgs=document.getElementById("file")
+loadimgs.onchange = function() {
+		 	var imgFile = this.files[0];
+	       // console.log(imgFile);
+	        var fr = new FileReader();  
+	        fr.onload = function() {  
+	        	imgsrc.src=fr.result;
+	        };   
+	fr.readAsDataURL(imgFile);
+} 
+onnload();   
+var goodsType;
+var tradingWay;
+var way; 
+
+  function onnload(){ 
+
+  $.ajax({             //获取违章类型        
+	    headers: {  
+	        Accept: "application/json; charset=utf-8",
+	        Authorization:accessToken 
+	    },           
+ 		type: "GET",       
+		url:  request_url+"/admin/type",   
+		async: false,    
+		success: function(data) {   
+			 			          
+			       
+			if (data.code==400) {  
+				// $.Huimodalalert(data.message,2000)
+				console.log('违章类型获取失败')
+			}else if(data.code==200){ 
+				json4 = data.list;        
+				console.log('违章类型获取成功')
+     
+	
+			$("#type").prepend("<option >请选择</option>")
+			for (b in json4) {          
+	 			 $("#type").append("<option value="+json4[b].id + " >"+json4[b].field+"</option>");
+			 } 
+
+
+
+				
+			} 
+			
+			}  
+							                   
+		});    
+		 
+ 			console.log('加载选项卡完成')       
+ 			
+ 			
+            onload();                  						
+				 		   
+  }
+		    
+  
+function onload(){
+	             	
+          
+ $.ajax({         
+				 	headers: {  
+					        Accept: "application/json; charset=utf-8",
+					        Authorization:accessToken 
+					    },  
+					type: "GET",         //获取当前案例的内容
+					url: request_url + "/admin/violation/detail",
+					data:{ 
+						vehicle:violation_car
+					},   
+					async: true,      
+					success: function(data) {     
+			            if (data.code==200) {          
+	            		   json = data.list;         
+	            		     for(a in json){
+	            		     	if (json[a].id==violation_id) {   
+	            		     		input[0].value=json[a].id     //id
+		 						   input[1].value=json[a].adminId     //id
+								   input[2].value=json[a].licensePlate     //学生id
+								   input[3].value=json[a].position    //标题
+							  	   $("#type").val(json[a].type);    //售卖形式  
+							  	     
+ 									json1=JSON.parse(json[a].pictureUrl);
+ 
+					  	  			shuzuchangdu= json1.length;   
+                                for (b in json1) {      
+		         	  
+			    		  
+						    		divc.innerHTML= divc.innerHTML+'<div   class="onloadup"     id="updatec'+z+'"  style="width:80px;height:80px; background:#CCCCCC;float: left;">'
+											+    '<img     src="'+json1[b]+'" height="80px" width="80px" border="5px"/>'
+											+  '<img  onClick="update('+z+')"   src="img/xx.png"  height="20px"  width="20px"  style=" position: relative; top: -80px;">'
+											+'</div> ' 
+											 z=z+1;     
+								}            
+									                  
+						   uploadimgs=JSON.parse(json[a].pictureUrl)    //本地存储图片   
+                          json2=JSON.parse(json[a].pictureUrl)
+							console.log(shuzuchangdu+'数组长度')       
+					      	console.log('加载数据完成')    
+ 
+	            		     	}else{  
+	            		     		
+	            		     	}     
+	            		     }
+	            		    
+						  
+    				 
+							 // editor.setContent(json.content );    //时事内容
+						     
+	   
+		            	}
+				
+                         						
+					}  
+									                   
+				});
+
+	}   
+  
+
+
+var goodsWay=document.getElementById('goodsWay');
+var tradingWay=document.getElementById('tradingWay');
+var goodsType=document.getElementById('goodsType');
+var status1=document.getElementById('status');
+btn.addEventListener('click',function(){
+  
+   for(var i = 0;i<json2.length;i++){
+		    if(json2[i]==''||json2[i]==null || json2[i]=='null' ){
+		        json2.splice(i,1);
+		        i=i-1;
+		    }   
+		}    
+		   	
+	for (var i=0;i<input_id.length;i++) {
+		console.log(input_id[i].value)
+		if (!input_id[i].value) {
+			$.Huimodalalert('输入框信息不完整',2000)
+		}
+	}   
+   
+	if(type.value=='请选择'){   
+		$.Huimodalalert('请选择违规类型',1000) 
+	}else {                
+	uploadimgs = json2.concat(json3);   
+	console.log(json2)
+	console.log(json3)  
+		var data={  
+		   id:parseInt(input_id[0].value),
+		   adminId: input_id[1].value,    
+		   licensePlate:input_id[2].value,          
+		   position:input_id[3].value,      
+		   type:parseInt(type.value),         
+		   pictureUrl:JSON.stringify(uploadimgs),     //图片      
+	                   
+		}               
+		data=JSON.stringify(data)    
+    	            console.log(data)  
+   	            $.ajax({   
+		   	            headers: {  
+				        Accept: "application/json; charset=utf-8",
+				        Authorization:accessToken 
+			   		},  
+					type: "PUT",         //获取所有用户信息     
+					url: request_url + "/admin/violation/update",   
+					data:data, 
+					async: true,               
+					contentType: "application/json",
+					success: function(data) {    
+					console.log(data)                    
+						if (data.code==200) {
+							$.Huimodalalert('上传成功',2000)  
+							parent.window.location.href="violation-list.html"; //刷新父窗口
+						} else{     
+							$.Huimodalalert('上传失败，请检查后在上传',2000)
+						 	
+						} 
+					}  
+				});
+     }    
+      
+ 
+      
+})        
+ //图片提交
+    $(window).ready(function () {
+        $("#btn1").click(function () {
+       
+           var formData = new FormData($('#form')[0]);//获取表单中的文件
+                    // 可以增加表单数据
+			     var form = new FormData();
+		                  
+          	  formData.append("picType","car");
+                                          
+           $.ajax({    
+              url: "https://www.sxscott.com/crazyBird-admin/upload/pic",//后台的接口地址
+               type:"post",//post请求方式 
+               data:formData,//参数
+               cache: false,
+               processData: false,   
+               contentType: false,      
+   		    	success:function (data) {  
+   		    		if (data.code==200) {              
+   		      
+   		    		      json3.push(data.urlList[0])
+   		    		 
+   		    		 $.Huimodalalert('上传成功',2000)
+   		    	}else{
+   		    		 $.Huimodalalert('上传失败，请检查后在上传',2000)
+   		    	}
+   		    		
+                     
+               },error:function () {
+              
+                   $.Huimodalalert('上传失败，请检查后在上传',2000)
+               }
+           })    
+              return false;
+        });  
+    });
+   
+</script>
+ 
+
+</body>
+</html>

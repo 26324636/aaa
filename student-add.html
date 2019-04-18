@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+
+<title>添加学生信息 - 学生信息管理</title>
+</head> 
+<body>    
+<article class="page-container">
+	  
+		<div class="form form-horizontal" >
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>学号：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="学号">
+		</div> 
+	</div> 
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text" value="" placeholder="姓名">
+		</div> 
+	</div> 
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>分院：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text" value="" placeholder="分院">
+		</div> 
+	</div>  
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>班级名称：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="班级名称">
+		</div> 
+	</div> 
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系方式：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="联系方式">
+		</div> 
+	</div> 
+	
+	<div class="row cl"> 
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>车牌：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text" value="" placeholder="车牌" >
+		</div>
+	</div>   
+	 <div class="row cl"> 
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>校外车牌：</label>
+		<div class="formControls col-xs-8 col-sm-9"> 
+			<input type="text" class="input-text" value="" placeholder="车牌" >
+		</div>
+	</div>   
+     
+   
+	<div class="row cl"> 
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="btn">
+		</div>
+	</div>
+	</div>
+</article> 
+ 
+<!--_footer 作为公共模版分离出去--> 
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
+<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+ 
+<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
+          
+<script type="text/javascript" src="js/jquery.form.js" ></script>
+<script type="text/javascript">
+  
+var accessToken=localStorage.getItem('accessToken');    //管理员登录态
+var request_url=localStorage.getItem('request_url');    //请求地址     
+var input=document.getElementsByTagName('input');
+var btn=document.getElementById('btn');
+
+btn.addEventListener('click',function(){
+	if (!input[0].value) {
+		$.Huimodalalert('学号不能为空',2000)
+		
+	}else if (!input[1].value) {
+		$.Huimodalalert('姓名不能为空',2000)
+		  
+	}else if (!input[2].value) {
+		$.Huimodalalert('分院不能为空',2000)
+		
+	}else if (!input[3].value) {
+		$.Huimodalalert('班级不能为空',2000)
+		
+	}else if (!input[4].value) {
+		$.Huimodalalert('联系方式不能为空',2000)
+		 
+	}else if (!input[5].value) {
+		$.Huimodalalert('车牌不能为空',2000)
+		
+	}else{
+		   var data={
+				studentId:input[0].value,
+			    name:input[1].value, 
+			    sorting:input[2].value,          	
+			    className:input[3].value, 
+			    telephone:input[4].value,  
+			    licensePlate:input[5].value, 
+			    licensePlateOutside:input[6].value, 
+			}                    
+		data=JSON.stringify(data)   
+
+		  $.ajax({             
+		    headers: {  
+		        Accept: "application/json; charset=utf-8",
+		        Authorization:accessToken 
+	   		},   
+			type: "POST",         //获取当前账户的权限
+			url: request_url + "/user/student/add",   
+			data: data,                      
+			async: true,  
+			contentType: "application/json",
+			success: function(data) {    
+			  if (data.code==200) { 
+              	    
+              	$.Huimodalalert('添加成功',2000) 
+              	  parent.window.location.href="student-list.html"; //刷新父窗口
+              	 
+              }else{
+                
+              	$.Huimodalalert('添加失败，请重试',2000)
+              }
+			}  
+							                   
+			}); 
+		
+		
+		
+	}
+})
+  
+
+
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html> 

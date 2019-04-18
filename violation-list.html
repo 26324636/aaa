@@ -1,0 +1,1084 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+<title>违章管理</title> 
+ <style>
+        * {
+            margin: 0; 
+            padding: 0;
+        } 
+		#ele{padding: 20px}
+        .clearfix::after {
+            content: ".";
+            clear: both;
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            height: 0;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+
+        .Pagination ul{
+            list-style: none;
+        }
+        .Pagination .total_num,.first_page,.prepage,.list_box,.nextpage,.last_page,.total_page,.redir {
+            float: left; 
+        } 
+        .Pagination ul li {
+            float: left;
+            background-color: #ccc;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 22px;
+            width: 22px;
+            height: 22px;
+            font-size: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #8b8b8b
+        }
+        .Pagination ul li:hover {
+            background-color: #58acf4;
+            color: #fff;
+        }
+        .Pagination .total_num {
+            margin: 0 5px;
+        }
+        .Pagination .total_num i {
+            font-style: normal;
+        }
+        .Pagination .list_box {
+            width: 320px;
+            overflow: hidden;
+            position: relative;
+            height: 32px;
+        }
+        .Pagination .list_box ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .Pagination .prepage {
+            background-color: #ccc;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #8b8b8b
+        }
+        .Pagination .prepage:hover {
+            background-color: #58acf4;
+            color: #fff;
+        }
+        .Pagination .nextpage {
+            background-color: #ccc;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #8b8b8b
+        }
+        .Pagination .nextpage:hover {
+            background-color: #58acf4;
+            color: #fff;
+        }
+        .Pagination .first_page {
+            background-color: #ccc;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #8b8b8b
+        }
+        .Pagination .first_page:hover {
+            background-color: #58acf4;
+            color: #fff;
+        }
+        .Pagination .last_page {
+            background-color: #ccc;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #8b8b8b
+        }
+        .Pagination .last_page:hover {
+            background-color: #58acf4;
+            color: #fff;
+        }
+        .Pagination .redir {
+            background-color: #58acf4;
+            color: #fff;
+            border-radius: 5px;
+            padding: 3px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .Pagination .redir:hover {
+            opacity: 0.8;
+        }
+        .Pagination input {
+            width: 50px;  
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            text-indent: 5px;
+            margin: 0 5px;
+        }
+        .Pagination .short {
+            background-color: #fff;
+            cursor: default;
+        }
+        .Pagination .short:hover {
+            background-color: #fff;
+            color: #8b8b8b;
+        }
+        .Pagination_active {
+            background-color: #58acf4 !important;
+            color: #fff !important;
+        }
+    </style> 
+
+</head>   
+<body> 
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 违章管理 <span class="c-gray en">&gt;</span> 违章列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>  
+<div class="page-container"> 
+	<div class="text-c">
+	 日期范围： 
+		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
+		 -  
+		  
+		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
+		<button type="submit" class="btn btn-success" id="btn" name=""><i class="Hui-iconfont">&#xe665;</i> 搜日期</button>  
+
+  
+		<span style="margin-left: 40px">车牌号：</span> 
+		<input type="text" class="input-text " style="width:120px;">
+		
+		   
+		  
+		<button type="submit" class="btn btn-success" id="btn1" name=""><i class="Hui-iconfont">&#xe665;</i> 搜车牌</button>  
+	</div>     
+
+
+	<div class="text-c" >
+	 
+	</div>        
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="product_add('添加违章记录','violation-add.html')"  class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加违章记录</a></span> 
+    	<!-- <form action="https://www.sxscott.com/vehicle/admin/violation/download?startTime=2019-1-1&endTime=2019-4-4" method="GET" enctype="multipart/form-data"  onsubmit="return saveReport();"  id="showDataForm">
+					    
+					<input type="file" name="file" class="btn btn-primary radius" placeholder="" id="file" style="position: relative; top: -999em;">
+					<input type="submit" value="上传" class="btn btn-primary radius" id="send" style="float: left;">
+		</form>  -->      
+<!-- 	<span class="r" ><a href="javascript:;" style="background: green;float: right;"  onclick="product_add('预览表格','violation-upload.html')" 
+		class="btn btn-success radius "><i class="Hui-iconfont">&#xe640;</i>录单表格</a></span>   -->
+		<span class="r" ><a href="javascript:;" style="background: green;float: right;"  id="generate-excel"    
+		class="btn btn-success radius "><i class="Hui-iconfont">&#xe640;</i>录单表格</a></span>    
+</div>       
+ 
+ <!--  <iframe id="ifile" style="display:none"></iframe> -->
+
+	<table class="table table-border table-bordered table-bg" id="test_table">  
+		<thead>     
+			  
+			<tr class="text-c">  
+				<th width="1">ID</th> 
+				<th width="5">操作人</th>
+				<th width="5">违规类型</th>  
+				<th width="5">车牌</th>   
+				<th width="5">位置</th>     
+				<th width="10">图片地址</th> 
+				<th width="5">违规内容</th>    
+				<th width="5">创建时间</th>    
+				<th width="10">操作</th>
+			</tr> 
+		</thead>
+		<tbody id="lis1"> 
+			<tr class="text-c">
+			 
+			
+			</tr>
+			  
+		</tbody>
+		 
+	</table>
+		<div id="ele" style="float: right;">
+        <div class="Pagination"></div>
+    </div>
+</div>
+<!--_footer 作为公共模版分离出去-->
+
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
+<!--  
+<script type="text/javascript" src="js/jszip.js"></script> 
+<script type="text/javascript" src="js/FileSaver.js"></script>      
+<script type="text/javascript" src="js/excel-gen.js"></script>
+<script type="text/javascript" src="js/demo.page.js"></script> -->
+<script type="text/javascript">
+var adminid=localStorage.getItem('adminid');            //管理员id
+var adminName=localStorage.getItem('adminName');        //管理员名字
+var level=localStorage.getItem('level');                //管理员权限
+var adminAccount=localStorage.getItem('adminAccount');  //管理员账号
+var accessToken=localStorage.getItem('accessToken');    //管理员登录态
+var request_url=localStorage.getItem('request_url');    //请求地址
+var violation_time1=localStorage.getItem('violation_time1');    //开始时间
+var violation_time2=localStorage.getItem('violation_time2');    //结束时间
+var violation_time3=localStorage.getItem('violation_time3');    //车牌号
+   
+var td=document.getElementsByTagName('td')
+var lis1=document.getElementById('lis1')
+var count=document.getElementById('count') 
+var btn=document.getElementById('btn')
+var btn1=document.getElementById('btn1') 
+var text 
+var sex 
+var input=document.getElementsByTagName('input')
+var generate_excel=document.getElementById('generate-excel')  
+var page1;         
+
+
+generate_excel.addEventListener('click',function(){   
+	$.Huimodalalert('正在下载，请稍后',2000)    
+ location.href = 'https://www.sxscott.com/vehicle/admin/violation/download?startTime=2019-1-1&endTime=2019-4-4';
+})   
+
+// location.href = '/media';
+function product_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url 
+	});
+	layer.full(index);
+} 
+function admin_add(title,url,w,h){
+	
+	layer_show(title,url,w,h);
+}
+/*管理员-删除*/
+function admin_del(id){
+	 
+	layer.confirm('确认要删除吗？',function(index){
+	  
+		$.ajax({   
+			headers: {  
+		        Accept: "application/json; charset=utf-8",
+		        Authorization:accessToken 
+		    },             
+			type: 'DELETE',            
+			url: request_url + "/admin/violation/delete?id="+id,
+			
+			success: function(data){
+				if (data.code==200) {
+				 
+				layer.msg('已删除!',{icon:1,time:1000}); 
+				if (input[0].value && input[1].value) {  	
+					localStorage.setItem('violation_time1',input[0].value);    //开始时间 
+					localStorage.setItem('violation_time2',input[1].value);    //结束时间 
+				}else if(input[2].value){   
+					localStorage.setItem('violation_time3',input[2].value);    //结束时间 
+				}               
+				location.replace(location.href)
+				}else{          
+				
+				layer.msg('删除失败请重试!',{icon:1,time:1000});
+			
+				}
+				 
+				
+			}, 
+			error:function(data) {
+				  
+				
+				layer.msg('删除失败请重试!',{icon:1,time:1000});
+			},
+		});	
+		  
+	});
+} 
+ 
+
+ /*编辑*/ 
+function product_edit(car,id){  
+      
+    // console.log(car)
+   
+	localStorage.setItem('violation_car',car);    //当前操作对象的id 
+	localStorage.setItem('violation_id',id);    //当前操作对象的id 
+	
+	title='违章记录编辑';          
+	url='violation-update.html';    
+	var index = layer.open({
+		type: 2, 
+		title: title, 
+		content: url
+	});
+	layer.full(index);  
+}
+
+
+  function Edit1(a,id) {
+          var tr = a.parentNode.parentNode, toEdit = a.title == '编辑'; 
+        a.title = toEdit ? '保存' : '编辑';
+        if (toEdit) {
+           
+            tr.cells[4].innerHTML = '<input type="text" style="width:100%" value="' + tr.cells[4].innerHTML.replace(/"/g, '&quot;') + '"/>'
+            tr.cells[5].innerHTML = '<input type="text" style="width:100%" value="' + tr.cells[5].innerHTML.replace(/"/g, '&quot;') + '"/>' 
+           a.title == '保存'  
+           a.childNodes[0].innerHTML='&#xe632;'
+           // console.log(12)
+
+        }    
+        else {  
+             
+            tr.cells[4].innerHTML = tr.cells[4].firstChild.value.replace(/</g, '&lt;').replace(/>/g, '&gt;') 
+            tr.cells[5].innerHTML = tr.cells[5].firstChild.value.replace(/</g, '&lt;').replace(/>/g, '&gt;')   
+          	a.childNodes[0].innerHTML='&#xe6df;'
+            typeName=tr.cells[1].innerHTML;   
+			var data={  
+				id:id,       
+				// openId:tr.cells[1].innerHTML,
+			    isBinding:tr.cells[4].innerHTML,    
+			    bindingId:tr.cells[5].innerHTML,
+			 
+		    }       
+		data=JSON.stringify(data)    
+    	              
+			$.ajax({        
+				headers: {  
+			        Accept: "application/json; charset=utf-8",
+			        Authorization:accessToken 
+			    },             
+				type: "PUT",             
+				url: request_url + "/user/update",   
+				data: data,                                
+				async: true,  
+				contentType: "application/json",   
+				success: function(data) {           
+					// console.log(data)    
+					  if (data.code==200) {
+						$.Huimodalalert('添加成功',2000)        
+					 location.replace(location.href);
+			   		}else{   
+						$.Huimodalalert('添加失败，请重试',2000)   
+			   		}     
+					   		                      
+			}
+        }) 
+   } 
+    } 
+
+if (accessToken) { 
+        
+		lis1.innerHTML=''  
+  	
+}
+   
+btn.addEventListener('click',function(){
+if (input[0].value && input[1].value) {  	
+	localStorage.setItem('violation_time1',input[0].value);    //开始时间 
+	localStorage.setItem('violation_time2',input[1].value);    //结束时间 
+}    
+if(input[2].value){   
+	localStorage.setItem('violation_time3',input[2].value);    //结束时间 
+} 
+if (!(input[0].value && input[1].value)) {
+    $.Huimodalalert('请输入时间区间',2000)
+}else{  
+  
+
+ 
+$.ajax({             //获取总页数       
+	   headers: {  
+		        Accept: "application/json; charset=utf-8",
+		        Authorization:accessToken 
+	    }, 
+		type: "GET",         //获取所有商品信息  
+		url: request_url + "/admin/violation/history",   
+		data:{
+           startTime:input[0].value,
+ 		   endTime:input[1].value,
+           pageNo:1,  
+           pageSize:5    
+		},               
+ 		async: false,     
+		success: function(data) {     
+			// console.log(data.list.length)
+                if (data.code!=200){  
+                	$.Huimodalalert('数据异常',2000)
+                }else if(data.list.length==0){
+                	$.Huimodalalert('数据为空',2000)
+                	 lis1.innerHTML=''   
+                }else{
+ 
+
+			 	  Pagination({  
+				    ele: '#ele', 
+				    totalCount: data.recordCount,
+				    totalPage: data.pageCount,
+				    currentPage: 1, 
+				    needTotalCount: true,
+				    callback: function(page){   
+				    	page1=page
+				            // console.log(page+'页') 
+				            admin_record(page,5);
+				    }
+				}); 
+				}		          
+			}   
+		});
+ 
+  }
+ })
+ 
+  
+btn1.addEventListener('click',function(){
+ 	
+	localStorage.setItem('violation_time1',input[0].value);    //开始时间 
+	localStorage.setItem('violation_time2',input[1].value);    //结束时间 
+ 
+	localStorage.setItem('violation_time3',input[2].value);    //结束时间 
+
+$.ajax({             //获取总页数       
+	   headers: {  
+		        Accept: "application/json; charset=utf-8",
+		        Authorization:accessToken 
+	    }, 
+		type: "GET",         //获取所有商品信息         
+		url: request_url + "/admin/violation/detail",   
+		data:{      
+           vehicle:input[2].value,
+ 		},                    
+ 		async: false,     
+		success: function(data) {   
+			 lis1.innerHTML=''   
+				            
+					if (data.code!=200){    
+					       $.Huimodalalert('此车牌无违纪或不存在',2000)
+  					}else if (data.message=='此车牌不存在'){
+							$.Huimodalalert('此车牌无违纪或不存在',2000)
+				    }else{    
+						json = data.list;    
+						for (a in json) {    
+							  for(b in json1){
+							  	  if (json[a].adminId==json1[b].id) {
+							  	  	 json[a].adminId=json1[b].adminName
+							  	  	break; 
+							  	  }
+							  }       
+							  for(c in json2){
+							  	  if (json[a].type==json2[c].id) {
+							  	  	 json[a].type=json2[c].field
+							  	  	break; 
+							  	  }
+							  }   
+							var goodsimgs=''; 
+							imgs=JSON.parse(json[a].pictureUrl);
+							for (var i = 0; i < imgs.length; i++) {
+		               
+							goodsimgs=goodsimgs 
+								+' <a href='+imgs[i] + ' target="_blank">'
+							    +'<img width="60" class="product-thumb" src="'+imgs[i]+'">'
+							    +'</a>'
+							}       
+						 
+							var tmpl ='<tr class="text-c va-m">'       
+							+	'<td>'+json[a].id+'</td>'        
+							+	'<td class="text-l text-c">'+json[a].adminId+'</td>'     
+							+	'<td class="text-l text-c">'+json[a].type+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].licensePlate+'</td>'
+							+	'<td class="td-status text-c">'+json[a].position+'</td>'     
+							+	'<td class="td-status ">'+goodsimgs+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].field+'</td>' 
+							+	'<td class="td-status text-c">'+json[a].gmtCreated+'</td>' 
+							+	'<td class="td-manage">'                                   
+							+		'<a style="text-decoration:none" class="ml-5"                   onclick=product_edit("'+json[a].licensePlate+'","'+json[a].id+'")   href="javascript:;" title="编辑">'                
+							+			'<i class="Hui-iconfont">&#xe6df;</i>'
+							+		'</a> '      
+						    +		'<a style="text-decoration:none" class="ml-5" onClick="admin_del('+json[a].id+')" href="javascript:;" title="删除">' 
+							+			'<i class="Hui-iconfont">&#xe6e2;</i>'
+							+		'</a>'     
+							+	'</td>' 
+							+'</tr>' 
+							lis1.innerHTML += tmpl;   
+
+						} 
+ 
+					}
+              
+					          
+			}   
+		});   
+  
+ })
+
+
+
+
+var type;
+var json1;
+var json2;
+$.ajax({             //获取管理员列表        
+	    headers: {  
+	        Accept: "application/json; charset=utf-8",
+	        Authorization:accessToken 
+	    },           
+ 		type: "GET",      
+		url:  request_url+"/admin/getList",   
+		async: false,    
+		success: function(data) {   
+			 			          
+			
+			if (data.code==400) { 
+				// $.Huimodalalert(data.message,2000)
+				// console.log('管理员列表获取失败')
+			}else if(data.code==200){ 
+				json1 = data.items;       
+				// console.log('管理员列表获取成功')
+			} 
+			
+			}  
+							                   
+		});   
+$.ajax({             //获取违章类型        
+	    headers: {  
+	        Accept: "application/json; charset=utf-8",
+	        Authorization:accessToken 
+	    },           
+ 		type: "GET",       
+		url:  request_url+"/admin/type",   
+		async: false,    
+		success: function(data) {   
+			 	    
+			       
+			if (data.code==400) {  
+				// $.Huimodalalert(data.message,2000)
+				// console.log('违章类型获取失败')
+			}else if(data.code==200){ 
+				json2 = data.list;          
+				// console.log('违章类型获取成功')
+                input[0].value=violation_time1
+                input[1].value=violation_time2
+                input[2].value=violation_time3
+            
+				     
+				if (violation_time1 && violation_time1) {
+					admin_record(page1,5);  
+				}else if(violation_time3){ 
+					$.ajax({             //获取总页数       
+					   headers: {  
+						        Accept: "application/json; charset=utf-8",
+						        Authorization:accessToken 
+					    }, 
+						type: "GET",         //获取所有商品信息         
+						url: request_url + "/admin/violation/detail",   
+						data:{      
+				           vehicle:input[2].value,
+				 		},                    
+				 		async: false,     
+						success: function(data) {   
+							 lis1.innerHTML=''   
+								          
+									if (data.code==!200){  
+									       $.Huimodalalert('数据异常',2000)
+				  					}else if (data.message=='此车牌不存在'){
+											$.Huimodalalert('此车牌不存在',2000)
+								    }else{ 
+										json = data.list;    
+										for (a in json) {    
+											  for(b in json1){
+											  	  if (json[a].adminId==json1[b].id) {
+											  	  	 json[a].adminId=json1[b].adminName
+											  	  	break; 
+											  	  }
+											  }       
+											  for(c in json2){
+											  	  if (json[a].type==json2[c].id) {
+											  	  	 json[a].type=json2[c].field
+											  	  	break; 
+											  	  }
+											  }   
+											var goodsimgs=''; 
+											imgs=JSON.parse(json[a].pictureUrl);
+											for (var i = 0; i < imgs.length; i++) {
+						               
+											goodsimgs=goodsimgs 
+												+' <a href='+imgs[i] + ' target="_blank">'
+											    +'<img width="60" class="product-thumb" src="'+imgs[i]+'">'
+											    +'</a>'
+											}       
+										 
+											var tmpl ='<tr class="text-c va-m">'       
+											+	'<td>'+json[a].id+'</td>'        
+											+	'<td class="text-l text-c">'+json[a].adminId+'</td>'     
+											+	'<td class="text-l text-c">'+json[a].type+'</td>'   
+											+	'<td class="td-status text-c">'+json[a].licensePlate+'</td>'
+											+	'<td class="td-status text-c">'+json[a].position+'</td>'     
+											+	'<td class="td-status ">'+goodsimgs+'</td>'   
+											+	'<td class="td-status text-c">'+json[a].field+'</td>' 
+											+	'<td class="td-status text-c">'+json[a].gmtCreated+'</td>' 
+											+	'<td class="td-manage">'                                   
+											+		'<a style="text-decoration:none" class="ml-5"                   onclick=product_edit("'+json[a].licensePlate+'","'+json[a].id+'")   href="javascript:;" title="编辑">'                
+											+			'<i class="Hui-iconfont">&#xe6df;</i>'
+											+		'</a> '      
+										    +		'<a style="text-decoration:none" class="ml-5" onClick="admin_del('+json[a].id+')" href="javascript:;" title="删除">' 
+											+			'<i class="Hui-iconfont">&#xe6e2;</i>'
+											+		'</a>'     
+											+	'</td>' 
+											+'</tr>' 
+											lis1.innerHTML += tmpl;   
+
+										} 
+				 
+									}	 
+
+							}   
+						}); 
+				}else{      
+					admin_record1(page1,5);
+				}
+			} 
+			
+			}  
+							                           
+		});  
+
+ 
+
+ 
+                         
+        
+function admin_record(pageNo,pageSize){
+      
+$.ajax({      
+				headers: {  
+				        Accept: "application/json; charset=utf-8",
+				        Authorization:accessToken 
+			    }, 
+				type: "GET",         //获取所有商品信息  
+				url: request_url + "/admin/violation/history",   
+				data:{   
+                  startTime:input[0].value,
+ 		          endTime:input[1].value,
+                   pageNo:pageNo,
+                   pageSize:pageSize
+				},                
+				async: false,           
+				contentType: "application/json",
+				success: function(data) {    
+					lis1.innerHTML=''   
+				      
+					if (data.code=='200') {  
+					     
+  						 
+						json = data.list;    
+						for (a in json) {    
+							  for(b in json1){
+							  	  if (json[a].adminId==json1[b].id) {
+							  	  	 json[a].adminId=json1[b].adminName
+							  	  	break; 
+							  	  }
+							  }       
+							  for(c in json2){
+							  	  if (json[a].type==json2[c].id) {
+							  	  	 json[a].type=json2[c].field
+							  	  	break; 
+							  	  }
+							  }   
+							var goodsimgs=''; 
+							imgs=JSON.parse(json[a].pictureUrl);
+							for (var i = 0; i < imgs.length; i++) {
+		               
+							goodsimgs=goodsimgs 
+								+' <a href='+imgs[i] + ' target="_blank">'
+							    +'<img width="60" class="product-thumb" src="'+imgs[i]+'">'
+							    +'</a>'
+							}       
+						 
+							var tmpl ='<tr class="text-c va-m">'       
+							+	'<td>'+json[a].id+'</td>'        
+							+	'<td class="text-l text-c">'+json[a].adminId+'</td>'     
+							+	'<td class="text-l text-c">'+json[a].type+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].licensePlate+'</td>'
+							+	'<td class="td-status text-c">'+json[a].position+'</td>'     
+							+	'<td class="td-status ">'+goodsimgs+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].field+'</td>' 
+							+	'<td class="td-status text-c">'+json[a].gmtCreated+'</td>' 
+							+	'<td class="td-manage">'                                   
+							+		'<a style="text-decoration:none" class="ml-5"                   onclick=product_edit("'+json[a].licensePlate+'","'+json[a].id+'")   href="javascript:;" title="编辑">'                
+							+			'<i class="Hui-iconfont">&#xe6df;</i>'
+							+		'</a> '      
+						    +		'<a style="text-decoration:none" class="ml-5" onClick="admin_del('+json[a].id+')" href="javascript:;" title="删除">' 
+							+			'<i class="Hui-iconfont">&#xe6e2;</i>'
+							+		'</a>'     
+							+	'</td>' 
+							+'</tr>' 
+							lis1.innerHTML += tmpl;   
+
+						} 
+ 
+
+
+					}else{
+						$.Huimodalalert('数据异常',2000)
+					}
+				}  
+
+			}); 
+
+
+ 
+} 
+
+
+
+
+           
+function admin_record1(pageNo,pageSize){
+      
+$.ajax({      
+				headers: {  
+				        Accept: "application/json; charset=utf-8",
+				        Authorization:accessToken 
+			    }, 
+				type: "GET",         //获取所有商品信息  
+				url: request_url + "/admin/violation/history",   
+				data:{   
+                 	
+                 	 startTime:'2018-01-01',
+ 		          endTime:'2029-12-29',     
+                   pageNo:pageNo,
+                   pageSize:pageSize
+				},                
+				async: false,           
+				contentType: "application/json",
+				success: function(data) {    
+					lis1.innerHTML=''   
+				      
+					if (data.code=='200') {  
+					     
+  						 
+						json = data.list;    
+						for (a in json) {    
+							  for(b in json1){
+							  	  if (json[a].adminId==json1[b].id) {
+							  	  	 json[a].adminId=json1[b].adminName
+							  	  	break; 
+							  	  }
+							  }       
+							  for(c in json2){
+							  	  if (json[a].type==json2[c].id) {
+							  	  	 json[a].type=json2[c].field
+							  	  	break; 
+							  	  }
+							  }   
+							var goodsimgs=''; 
+							imgs=JSON.parse(json[a].pictureUrl);
+							for (var i = 0; i < imgs.length; i++) {
+		               
+							goodsimgs=goodsimgs 
+								+' <a href='+imgs[i] + ' target="_blank">'
+							    +'<img width="60" class="product-thumb" src="'+imgs[i]+'">'
+							    +'</a>'
+							}       
+						 
+							var tmpl ='<tr class="text-c va-m">'       
+							+	'<td>'+json[a].id+'</td>'        
+							+	'<td class="text-l text-c">'+json[a].adminId+'</td>'     
+							+	'<td class="text-l text-c">'+json[a].type+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].licensePlate+'</td>'
+							+	'<td class="td-status text-c">'+json[a].position+'</td>'     
+							+	'<td class="td-status ">'+goodsimgs+'</td>'   
+							+	'<td class="td-status text-c">'+json[a].field+'</td>' 
+							+	'<td class="td-status text-c">'+json[a].gmtCreated+'</td>' 
+							+	'<td class="td-manage">'                                   
+							+		'<a style="text-decoration:none" class="ml-5"                   onclick=product_edit("'+json[a].licensePlate+'","'+json[a].id+'")   href="javascript:;" title="编辑">'                
+							+			'<i class="Hui-iconfont">&#xe6df;</i>'
+							+		'</a> '      
+						    +		'<a style="text-decoration:none" class="ml-5" onClick="admin_del('+json[a].id+')" href="javascript:;" title="删除">' 
+							+			'<i class="Hui-iconfont">&#xe6e2;</i>'
+							+		'</a>'     
+							+	'</td>' 
+							+'</tr>' 
+							lis1.innerHTML += tmpl;   
+ 
+						}      
+ 
+					}else{
+						$.Huimodalalert('数据异常',2000)
+					}
+				}  
+
+			}); 
+
+
+ 
+} 
+ 
+
+   
+         
+ 
+// // jquery 表单提交  
+// $("#showDataForm").ajaxSubmit(function(message) { 
+// // 对于表单提交成功后处理，message为提交页面saveReport.htm的返回内容 
+// url:'https://www.sxscott.com/vehicle/admin/violation/download?startTime=2019-1-1&endTime=2019-4-4',
+//                 type:'GET',
+//                 dataType:'json',
+//                 headers:
+//                 {
+//                     "Authorization": token
+//                 }  
+            
+// $('#showDataForm').ajaxSubmit({
+
+//     url:'https://www.sxscott.com/vehicle/admin/violation/download?startTime=2019-1-1&endTime=2019-4-4',
+//     type:'GET',
+   
+//     headers:
+//     {     
+//            // Accept: "application/json; charset=utf-8",
+// 	        Authorization:accessToken 
+//     },   
+//      success: function (data) {
+        
+//                 console.log("Download file DONE!");
+//                 console.log(data); // ajax方式请求的数据只能存放在javascipt内存空间，可以通过javascript访问，但是无法保存到硬盘
+//                 console.log(status);
+//                 console.log(xhr);
+//                 console.log("=====================");
+//             }
+// }) 
+
+
+
+
+
+
+
+
+
+
+ // 分页器
+    function Pagination (data) {
+        var isInit = true
+        var ele = data.ele
+        $(ele + '>div').html('')
+        var currentPage = data.currentPage ? data.currentPage : 1
+        var callback = data.callback ? data.callback : function(pageNum){
+            // console.log('当前是第' + pageNum + '页')
+        }
+        // 跳转指定页函数
+        function inputPage () {
+            if(!isInit){
+                if(currentPage == $(ele + ' input').val()) return $(ele + ' input').val('')
+                currentPage = $(ele + ' input').val()
+            }
+            if(($(ele + ' input').val() > 9 && data.totalPage > 9) || (isInit && currentPage > 10)){
+                if(currentPage%10 < 5){
+                    var a = (currentPage - currentPage%10)/10
+                    var b = a - 1
+                    var c = a + b
+                    $(ele + ' ul').animate({left: -160 *c})
+                    if(currentPage - (Math.floor(data.totalPage/10)*10) >= 0 && currentPage - (Math.floor(data.totalPage/10)*10) <= 5){
+                        if(data.totalPage%10 >= 5 && data.totalPage - currentPage <= data.totalPage - Math.floor(data.totalPage/10)*10 - 5){
+                            $(ele + ' .list_box').animate({width: (data.totalPage - Math.floor(data.totalPage/10)*10 +5)*32})
+                        } else if(data.totalPage%10 < 5 && data.totalPage - currentPage <= data.totalPage - Math.floor(data.totalPage/10)*10){
+                            $(ele + ' .list_box').animate({width: (data.totalPage - Math.floor(data.totalPage/10)*10 + 5)*32})
+                        } else {
+                            $(ele + ' .list_box').width(320)
+                        }
+                    } else {
+                        $(ele + ' .list_box').animate({width: 320})
+                    }
+                } else {
+                    $(ele + ' ul').animate({left: -160 *((currentPage - currentPage%10)/5)})
+                    if(currentPage - (Math.floor(data.totalPage/10)*10+5) >= 0 && currentPage - (Math.floor(data.totalPage/10)*10+5) <= 5){
+                        $(ele + ' .list_box').animate({width: (data.totalPage - Math.floor(data.totalPage/10)*10)*32})
+                    } else if(currentPage - (Math.floor(data.totalPage/10)*10) >= 0 && currentPage - (Math.floor(data.totalPage/10)*10) <= 5){
+                        $(ele + ' .list_box').animate({width: (data.totalPage - Math.floor(data.totalPage/10)*10)*32})
+                    } else {
+                        $(ele + ' .list_box').animate({width: 320})
+                    }
+                }
+
+            } else {
+                $(ele + ' ul').animate({left: 0})
+                $(ele + ' .list_box').animate({width: 320})
+            }
+            $(ele + ' input').val('')
+            $(ele + ' ul li').eq(currentPage-1).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+            callback(currentPage)
+        }
+        if(data.needTotalCount){
+            $(ele + ' .Pagination').append('<span class="total_num">共<i></i>条</span>')
+            $(ele +' .Pagination .total_num i').text(data.totalCount)
+        }
+        var PaginationLiList = ''
+        if(data.totalCount != 0){
+            $(ele + ' .Pagination').append('<span class="first_page">首页</span>' +
+                                    '<span class="prepage">上一页</span>' +
+                                    '<div class="list_box clearfix"><ul></ul></div>' +
+                                    '<span class="nextpage">下一页</span>' +
+                                    '<span class="last_page">尾页</span>' +
+                                    '<span class="total_page">共'+data.totalPage+'页</span>' +
+                                    '<input type="text">' +
+                                    '<span class="redir">跳转</span>')
+            if(data.totalPage < 10){
+                $(ele + ' .Pagination .list_box').width(data.totalPage*32)
+            }
+            inputPage()
+            isInit = false
+            for(var i = 0; i < data.totalPage; i++){
+                var j = i + 1
+                if(i==currentPage-1){
+                    var li = '<li class="Pagination_active" data-page="'+ j +'">' + j + '</li>'
+                } else {
+                    var li = '<li data-page="'+ j +'">' + j + '</li>'
+                }
+                PaginationLiList += li
+            }
+            $(ele + ' .Pagination ul').html('')
+            $(ele + ' .Pagination ul').html(PaginationLiList)
+            $(ele + ' .Pagination ul').width(data.totalPage*32)
+            // 页码点击跳到指定页数
+            $(ele + ' .Pagination ul').on('click','li',function(){
+                currentPage = $(this).data("page")
+                if(!$(this).hasClass('Pagination_active')){
+                    $(this).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+                    if(((currentPage/10)%1==0 || ((currentPage/5)%1==0 && currentPage > 5)) && currentPage != data.totalPage){
+                        if(currentPage%2==0){
+                            var a = currentPage/10
+                            var b = a - 1
+                            var c = a + b
+                            $(ele + ' .Pagination ul').animate({left: -160 *c})
+                        } else {
+                            $(ele + ' .Pagination ul').animate({left: -160 *((currentPage/5)-1)})
+                        }
+                        if(data.totalPage - currentPage < 5){
+                            $(ele + ' .Pagination .list_box').animate({width: (data.totalPage - currentPage + 5)*32})
+                        }
+                    }
+                    if(((currentPage-1)/5)%1==0 && currentPage > 5 && currentPage != data.totalPage){
+                        $(ele + ' .Pagination ul').animate({left: -160 *(((currentPage-1)/5)-1)})
+                        if(data.totalPage - currentPage >= 5){
+                            $(ele + ' .Pagination .list_box').animate({width: 320})
+                        }
+                    }
+                    callback(currentPage)
+                }
+            })
+            // 跳到第一页
+            $(ele + ' .Pagination .first_page').on('click',function(){
+                if(currentPage != 1){
+                    $(ele + ' .Pagination ul li').eq(0).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+                    $(ele + ' .Pagination ul').animate({left: 0})
+                    if(data.totalPage > 9){
+                        $(ele + ' .Pagination .list_box').animate({width: 320})
+                    } else {
+                        $(ele + ' .Pagination .list_box').animate({width: data.totalPage*32})
+                    }
+                    currentPage = 1
+                    callback(currentPage)
+                }
+            })
+            // 跳到最后一页
+            $(ele + ' .Pagination .last_page').on('click',function(){
+                if(currentPage != data.totalPage){
+                    currentPage = data.totalPage
+                    $(ele + ' .Pagination ul li').eq(data.totalPage-1).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+                    if(data.totalPage > 10){
+                        if(data.totalPage%10 <= 5){
+                            var a = (data.totalPage - data.totalPage%10)/10
+                            var b = a - 1
+                            var c = a + b
+                            $(ele + ' .Pagination ul').animate({left: -160 *c})
+                            $(ele + ' .Pagination .list_box').stop().animate({width: (data.totalPage-Math.floor(data.totalPage/10)*10+5)*32})
+                        } else {
+                            $(ele + ' .Pagination ul').animate({left: -160 *((data.totalPage - data.totalPage%10)/5)})
+                            $(ele + ' .Pagination .list_box').stop().animate({width: (data.totalPage-Math.floor(data.totalPage/10)*10)*32})
+                        }
+                    }
+                    callback(currentPage)
+                }
+            })
+            // 上一页
+            $(ele + ' .Pagination .prepage').on('click',function(){
+                if(currentPage > 1){
+                    currentPage--
+                    if(((currentPage-1)/5)%1==0 && currentPage > 5){
+                        $(ele + ' .Pagination ul').animate({left: -160 *(((currentPage-1)/5)-1)})
+                        if(data.totalPage - currentPage >= 4){
+                            $(ele + ' .Pagination .list_box').animate({width: 320})
+                        }
+                    }
+                    $(ele + ' .Pagination ul li').eq(currentPage-1).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+                    callback(currentPage)
+                }
+            })
+            // 下一页
+            $(ele + ' .Pagination .nextpage').on('click',function(){
+                if(currentPage < data.totalPage){
+                    if(currentPage > 9){
+                        if(((currentPage/10)%1==0 || ((currentPage/5)%1==0 && currentPage > 5)) && currentPage != data.totalPage){
+                            if(currentPage%2==0){
+                                var a = currentPage/10
+                                var b = a - 1
+                                var c = a + b
+                                $(ele + ' .Pagination ul').animate({left: -160 *c})                        
+                            } else {
+                                $(ele + ' .Pagination ul').animate({left: -160 *((currentPage/5)-1)})
+                            }
+                            if(data.totalPage - currentPage < 5){
+                                $(ele + ' .Pagination .list_box').animate({width: (data.totalPage - currentPage + 5)*32})
+                            }
+                        }
+                    }
+                    currentPage++
+
+                    $(ele + ' .Pagination ul li').eq(currentPage-1).addClass('Pagination_active').siblings().removeClass('Pagination_active')
+                    callback(currentPage)
+                }
+            })
+            // 输入跳转指定页
+            $(ele + ' .Pagination input').on('keydown',function(e){
+                if(e.keyCode == 13 && $(this).val() <= data.totalPage && $(this).val() != 0){
+                    inputPage()
+                }
+            })
+            // 转跳按钮
+            $(ele + ' .Pagination .redir').on('click', function(){
+                if($(ele + ' .Pagination input').val() <= data.totalPage && $(ele + ' input').val() != 0){
+                    inputPage()
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>
