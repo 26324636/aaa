@@ -15,5 +15,25 @@ jQuery.Huitab = function (tabBar, tabCon, class_name, tabEvent, i) {
     })
 }
 $(function () {
-    $.Huitab("#tab_demo .tabBar span", "#tab_demo .tabCon", "current", "click", "1")
+    $.Huitab("#tab_demo .tabBar span", "#tab_demo .tabCon", "current", "click", "0")
 });
+Pagination({  
+    ele: '#ele', 
+    totalCount: 20,
+    totalPage: 5,
+    currentPage: 1, 
+    needTotalCount: true,
+    callback: function(page){   
+
+    }
+}); 
+Pagination({  
+    ele: '#ele1', 
+    totalCount: 500,
+    totalPage: 15,
+    currentPage: 1, 
+    needTotalCount: true,
+    callback: function(page){   
+
+    }
+}); 

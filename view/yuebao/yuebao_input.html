@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" />
+    <title>月报输入</title>
+</head>
+
+<body>
+    <table id="reportTable" width="1900" freezeRowNum="2" freezeColumnNum="2" class="report" align="center">
+            <thead>
+                    <tr class="text-c">
+                        <th width="12%">序号</th>
+                        <th width="12%">栏目</th>
+                        <th width="40%">标题</th>
+                        <th width="12%">发布时间</th>
+                        <th width="12%">发布人</th>
+                        <th width="12%">查看次数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-c">
+                        <td>1</td>
+                        <td>系统公告</td>
+                        <td class="sysNotice">月报信息-技术中心查询模块上线</td>
+                        <td>2018-09-10 10:32:50</td>
+                        <td>管理员</td>
+                        <td>115次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>2</td>
+                        <td>系统公告</td>
+                        <td class="sysNotice">人员业绩查询模块试运行</td>
+                        <td>2018-08-23 20:34:05</td>
+                        <td>管理员</td>
+                        <td>445次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>3</td>
+                        <td>系统公告</td>
+                        <td>外包支付模块试运行</td>
+                        <td>2018-08-23 20:32:48</td>
+                        <td>管理员</td>
+                        <td>356次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>4</td>
+                        <td>系统公告</td>
+                        <td>线上系统填写说明ver 1.0</td>
+                        <td>2018-05-02 16:24:34</td>
+                        <td>管理员</td>
+                        <td>563次</td>
+                    </tr>
+
+                    <tr class="text-c">
+                        <td>5</td>
+                        <td>系统公告</td>
+                        <td>周报系统试运行</td>
+                        <td>2018-04-19 21:28:54</td>
+                        <td>管理员</td>
+                        <td>215次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>6</td>
+                        <td>系统公告</td>
+                        <td>系统更新1 增加消息模块等</td>
+                        <td>2018-04-11 01:10:00</td>
+                        <td>管理员</td>
+                        <td>566次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>7</td>
+                        <td>系统公告</td>
+                        <td>测试版本月报正式启用</td>
+                        <td>2018-04-11 01:03:25</td>
+                        <td>管理员</td>
+                        <td>142次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>8</td>
+                        <td>系统公告</td>
+                        <td>新增测试版本月报</td>
+                        <td>2018-01-05 01:03:33</td>
+                        <td>管理员</td>
+                        <td>532次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>9</td>
+                        <td>系统公告</td>
+                        <td>产值表填写入口修改，填写界面和权限修改，增加产值表填写状态</td>
+                        <td>2017-07-31 01:03:44</td>
+                        <td>管理员</td>
+                        <td>125次</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>10</td>
+                        <td>系统公告</td>
+                        <td>产值表和面积表功能代码更新</td>
+                        <td>2017-06-23 01:03:55</td>
+                        <td>管理员</td>
+                        <td>125次</td>
+                    </tr>
+                </tbody>
+    </table>
+    <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script>
+    <script>
+        /*
+         * 锁定表头和列
+         * 
+         * 参数定义
+         *   table - 要锁定的表格元素或者表格ID
+         *   freezeRowNum - 要锁定的前几行行数，如果行不锁定，则设置为0
+         *   freezeColumnNum - 要锁定的前几列列数，如果列不锁定，则设置为0
+         *   width - 表格的滚动区域宽度
+         *   height - 表格的滚动区域高度
+         */
+        function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
+            if (typeof (freezeRowNum) == 'string')
+                freezeRowNum = parseInt(freezeRowNum)
+
+            if (typeof (freezeColumnNum) == 'string')
+                freezeColumnNum = parseInt(freezeColumnNum)
+
+            var tableId;
+            if (typeof (table) == 'string') {
+                tableId = table;
+                table = $('#' + tableId);
+            } else
+                tableId = table.attr('id');
+
+            var divTableLayout = $("#" + tableId + "_tableLayout");
+
+            if (divTableLayout.length != 0) {
+                divTableLayout.before(table);
+                divTableLayout.empty();
+            } else {
+                table.after("<div id='" + tableId + "_tableLayout' style='overflow:hidden;height:" + height +
+                    "px; width:" + width + "px;'></div>");
+
+                divTableLayout = $("#" + tableId + "_tableLayout");
+            }
+
+            var html = '';
+            if (freezeRowNum > 0 && freezeColumnNum > 0)
+                html += '<div id="' + tableId + '_tableFix" style="padding: 0px;"></div>';
+
+            if (freezeRowNum > 0)
+                html += '<div id="' + tableId + '_tableHead" style="padding: 0px;"></div>';
+
+            if (freezeColumnNum > 0)
+                html += '<div id="' + tableId + '_tableColumn" style="padding: 0px;"></div>';
+
+            html += '<div id="' + tableId + '_tableData" style="padding: 0px;"></div>';
+
+
+            $(html).appendTo("#" + tableId + "_tableLayout");
+
+            var divTableFix = freezeRowNum > 0 && freezeColumnNum > 0 ? $("#" + tableId + "_tableFix") : null;
+            var divTableHead = freezeRowNum > 0 ? $("#" + tableId + "_tableHead") : null;
+            var divTableColumn = freezeColumnNum > 0 ? $("#" + tableId + "_tableColumn") : null;
+            var divTableData = $("#" + tableId + "_tableData");
+
+            divTableData.append(table);
+
+            if (divTableFix != null) {
+                var tableFixClone = table.clone(true);
+                tableFixClone.attr("id", tableId + "_tableFixClone");
+                divTableFix.append(tableFixClone);
+            }
+
+            if (divTableHead != null) {
+                var tableHeadClone = table.clone(true);
+                tableHeadClone.attr("id", tableId + "_tableHeadClone");
+                divTableHead.append(tableHeadClone);
+            }
+
+            if (divTableColumn != null) {
+                var tableColumnClone = table.clone(true);
+                tableColumnClone.attr("id", tableId + "_tableColumnClone");
+                divTableColumn.append(tableColumnClone);
+            }
+
+            $("#" + tableId + "_tableLayout table").css("margin", "0");
+
+            if (freezeRowNum > 0) {
+                var HeadHeight = 0;
+                var ignoreRowNum = 0;
+                $("#" + tableId + "_tableHead tr:lt(" + freezeRowNum + ")").each(function () {
+                    if (ignoreRowNum > 0)
+                        ignoreRowNum--;
+                    else {
+                        var td = $(this).find('td:first, th:first');
+                        HeadHeight += td.outerHeight(true);
+
+                        ignoreRowNum = td.attr('rowSpan');
+                        if (typeof (ignoreRowNum) == 'undefined')
+                            ignoreRowNum = 0;
+                        else
+                            ignoreRowNum = parseInt(ignoreRowNum) - 1;
+                    }
+                });
+                HeadHeight += 2;
+
+                divTableHead.css("height", HeadHeight);
+                divTableFix != null && divTableFix.css("height", HeadHeight);
+            }
+
+            if (freezeColumnNum > 0) {
+                var ColumnsWidth = 0;
+                var ColumnsNumber = 0;
+                $("#" + tableId + "_tableColumn tr:eq(" + freezeRowNum + ")").find("td:lt(" + freezeColumnNum +
+                    "), th:lt(" + freezeColumnNum + ")").each(function () {
+                    if (ColumnsNumber >= freezeColumnNum)
+                        return;
+
+                    ColumnsWidth += $(this).outerWidth(true);
+
+                    ColumnsNumber += $(this).attr('colSpan') ? parseInt($(this).attr('colSpan')) : 1;
+                });
+                ColumnsWidth += 2;
+
+                divTableColumn.css("width", ColumnsWidth);
+                divTableFix != null && divTableFix.css("width", ColumnsWidth);
+            }
+
+            divTableData.scroll(function () {
+                divTableHead != null && divTableHead.scrollLeft(divTableData.scrollLeft());
+
+                divTableColumn != null && divTableColumn.scrollTop(divTableData.scrollTop());
+            });
+
+            divTableFix != null && divTableFix.css({
+                "overflow": "hidden",
+                "position": "absolute",
+                "z-index": "50"
+            });
+            divTableHead != null && divTableHead.css({
+                "overflow": "hidden",
+                "width": width - 17,
+                "position": "absolute",
+                "z-index": "45"
+            });
+            divTableColumn != null && divTableColumn.css({
+                "overflow": "hidden",
+                "height": height - 17,
+                "position": "absolute",
+                "z-index": "40"
+            });
+            divTableData.css({
+                "overflow": "scroll",
+                "width": width,
+                "height": height,
+                "position": "absolute"
+            });
+
+            divTableFix != null && divTableFix.offset(divTableLayout.offset());
+            divTableHead != null && divTableHead.offset(divTableLayout.offset());
+            divTableColumn != null && divTableColumn.offset(divTableLayout.offset());
+            divTableData.offset(divTableLayout.offset());
+        }
+
+        /*
+         * 调整锁定表的宽度和高度，这个函数在resize事件中调用
+         * 
+         * 参数定义
+         *   table - 要锁定的表格元素或者表格ID
+         *   width - 表格的滚动区域宽度
+         *   height - 表格的滚动区域高度
+         */
+        function adjustTableSize(table, width, height) {
+            var tableId;
+            if (typeof (table) == 'string')
+                tableId = table;
+            else
+                tableId = table.attr('id');
+
+            $("#" + tableId + "_tableLayout").width(width).height(height);
+            $("#" + tableId + "_tableHead").width(width - 17);
+            $("#" + tableId + "_tableColumn").height(height - 17);
+            $("#" + tableId + "_tableData").width(width).height(height);
+        }
+
+        function pageHeight() {
+            if ($.browser.msie) {
+                return document.compatMode == "CSS1Compat" ? document.documentElement.clientHeight : document.body
+                    .clientHeight;
+            } else {
+                return self.innerHeight;
+            }
+        };
+
+        //返回当前页面宽度
+        function pageWidth() {
+            if ($.browser.msie) {
+                return document.compatMode == "CSS1Compat" ? document.documentElement.clientWidth : document.body
+                    .clientWidth;
+            } else {
+                return self.innerWidth;
+            }
+        };
+
+        $(document).ready(function () {
+            var table = $("table");
+            var tableId = table.attr('id');
+            var freezeRowNum = table.attr('freezeRowNum');
+            var freezeColumnNum = table.attr('freezeColumnNum');
+
+            if (typeof (freezeRowNum) != 'undefined' || typeof (freezeColumnNum) != 'undefined') {
+                freezeTable(table, freezeRowNum || 0, freezeColumnNum || 0, pageWidth(), pageHeight());
+
+                var flag = false;
+                $(window).resize(function () {
+                    if (flag)
+                        return;
+
+                    setTimeout(function () {
+                        adjustTableSize(tableId, pageWidth(), pageHeight());
+                        flag = false;
+                    }, 100);
+
+                    flag = true;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
