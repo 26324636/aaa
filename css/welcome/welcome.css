@@ -1,0 +1,30 @@
+.panelMain{
+    display: flex;
+    justify-content:space-between;
+}
+.panel-body{
+    padding: 10px;
+}
+.panel-success {
+    border-color: #8DB6CD;
+    width: 49.5%;
+
+}
+
+.panel-success>.panel-header {
+    border-color: #8DB6CD;
+    background-color: #8DB6CD;
+    color: #fff
+}
+.th1{
+    width: 60%;
+}
+.th2{
+    width: 20%;
+}
+.th3{
+    width: 60%;
+}
+.sysNotice{
+    cursor: pointer;
+}
