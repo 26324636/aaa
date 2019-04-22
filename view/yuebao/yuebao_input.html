@@ -2,260 +2,282 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" />
-    <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" />
-    <title>月报输入</title>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" />
+  <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
+  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" />
+  <link rel="stylesheet" href="../../css/yuebao/yuebao.css">
+  <title>月报输入</title>
 </head>
 
 <body>
-        <div style="width:1000px;  overflow:scroll;">
-                <table border="1" rules="all" style="width:2000px; height:100px; text-align:center">
+    <div class="fixed-table-box row-col-fixed">
+        <!-- 表头 start -->
+        <div class="fixed-table_header-wraper">
+            <table class="fixed-table_header" cellspacing="0" cellpadding="0" border="0">
+                <thead>
                     <tr>
-                        <th style="position:fixed;z-index: 999;background: red;height:48px;">ID</th>
-                        <th>标题</th>
-                        <th>简介</th>
-                        <th>作者</th>
-                        <th>库存</th>
-                        <th>价格</th>
-                        <th>销量</th>
-                        <th>备注</th>
-                        <th>阅读数</th>
-                        <th>点赞数</th>
-                        <th>收藏数</th>
-                        <th>评论数</th>
-                        <th>发布时间</th>
-                        <th>修改时间</th>
+                        <th class="w-150" data-fixed="true"><div class="table-cell">日期</div></th>
+                        <th class="w-120" data-fixed><div class="table-cell">姓名</div></th>
+                        <th class="w-120"><div class="table-cell">省份</div></th>
+                        <th class="w-120"><div class="table-cell">市区</div></th>
+                        <th class="w-300"><div class="table-cell">地址</div></th>
+                        <th class="w-120"><div class="table-cell">邮编</div></th>
+                        <th class="w-100"><div class="table-cell">操作</div></th>
                     </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- 表头 end -->
+        <!-- 表格内容 start -->
+        <div class="fixed-table_body-wraper">
+            <table class="fixed-table_body" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
                     <tr>
-                        <td style="position:fixed;z-index: 999;background: red;height:48px;">
-                            999
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
                         </td>
-                        <td >这是一篇标题很长的文章用来测试表格的测试标题</td>
-                        <td>这是一篇标题很长的文章用来测试表格不被太多列挤得变形的描述...</td>
-                        <td>管理员</td>
-                        <td>3000</td>
-                        <td>120.68</td>
-                        <td>1200</td>
-                        <td>测试啊测试test</td>
-                        <td>123</td>
-                        <td>20</td>
-                        <td>17</td>
-                        <td>5</td>
-                        <td>2018-03-06 12:00:00</td>
-                        <td>2018-03-07 15:00:00</td>
                     </tr>
-                    
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                        <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        <td class="w-120"><div class="table-cell">上海</div></td>
+                        <td class="w-120"><div class="table-cell">普陀区</div></td>
+                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
+                        <td class="w-120"><div class="table-cell">200333</div></td>
+                        <td class="w-100">
+                            <div class="table-cell">
+                                <a href="###">查看</a>
+                                <a href="###">编辑</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 表格内容 end -->
+
+        <!-- 固定列 start -->
+        <div class="fixed-table_fixed fixed-table_fixed-left">
+            <div class="fixed-table_header-wraper">
+                <table class="fixed-table_header" cellspacing="0" cellpadding="0" border="0">
+                    <thead>
+                        <tr>
+                            <th class="w-150"><div class="table-cell">日期</div></th>
+                            <th class="w-120"><div class="table-cell">姓名</div></th>
+                        </tr>
+                    </thead>
                 </table>
             </div>
-    <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
-    <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script>
-    <script>
-        /*
- * 锁定表头和列
- * 
- * 参数定义
- *   table - 要锁定的表格元素或者表格ID
- *   freezeRowNum - 要锁定的前几行行数，如果行不锁定，则设置为0
- *   freezeColumnNum - 要锁定的前几列列数，如果列不锁定，则设置为0
- *   width - 表格的滚动区域宽度
- *   height - 表格的滚动区域高度
- */
-function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
-  if (typeof(freezeRowNum) == 'string')
-    freezeRowNum = parseInt(freezeRowNum)
-     
-  if (typeof(freezeColumnNum) == 'string')
-    freezeColumnNum = parseInt(freezeColumnNum)
- 
-  var tableId;
-  if (typeof(table) == 'string') {
-    tableId = table;
-    table = $('#' + tableId);
-  } else
-    tableId = table.attr('id');
-     
-  var divTableLayout = $("#" + tableId + "_tableLayout");
-   
-  if (divTableLayout.length != 0) {
-    divTableLayout.before(table);
-    divTableLayout.empty();
-  } else {
-    table.after("<div id='" + tableId + "_tableLayout' style='overflow:hidden;height:" + height + "px; width:" + width + "px;'></div>");
-     
-    divTableLayout = $("#" + tableId + "_tableLayout");
-  }
-   
-  var html = '';
-  if (freezeRowNum > 0 && freezeColumnNum > 0)
-    html += '<div id="' + tableId + '_tableFix" style="padding: 0px;"></div>';
-     
-  if (freezeRowNum > 0)
-    html += '<div id="' + tableId + '_tableHead" style="padding: 0px;"></div>';
-     
-  if (freezeColumnNum > 0)
-    html += '<div id="' + tableId + '_tableColumn" style="padding: 0px;"></div>';
-     
-  html += '<div id="' + tableId + '_tableData" style="padding: 0px;"></div>';
-   
-   
-  $(html).appendTo("#" + tableId + "_tableLayout");
-   
-  var divTableFix = freezeRowNum > 0 && freezeColumnNum > 0 ? $("#" + tableId + "_tableFix") : null;
-  var divTableHead = freezeRowNum > 0 ? $("#" + tableId + "_tableHead") : null;
-  var divTableColumn = freezeColumnNum > 0 ? $("#" + tableId + "_tableColumn") : null;
-  var divTableData = $("#" + tableId + "_tableData");
-   
-  divTableData.append(table);
-   
-  if (divTableFix != null) {
-    var tableFixClone = table.clone(true);
-    tableFixClone.attr("id", tableId + "_tableFixClone");
-    divTableFix.append(tableFixClone);
-  }
-   
-  if (divTableHead != null) {
-    var tableHeadClone = table.clone(true);
-    tableHeadClone.attr("id", tableId + "_tableHeadClone");
-    divTableHead.append(tableHeadClone);
-  }
-   
-  if (divTableColumn != null) {
-    var tableColumnClone = table.clone(true);
-    tableColumnClone.attr("id", tableId + "_tableColumnClone");
-    divTableColumn.append(tableColumnClone);
-  }
-   
-  $("#" + tableId + "_tableLayout table").css("margin", "0");
-   
-  if (freezeRowNum > 0) {
-    var HeadHeight = 0;
-    var ignoreRowNum = 0;
-    $("#" + tableId + "_tableHead tr:lt(" + freezeRowNum + ")").each(function () {
-      if (ignoreRowNum > 0)
-        ignoreRowNum--;
-      else {
-        var td = $(this).find('td:first, th:first');
-        HeadHeight += td.outerHeight(true);
-         
-        ignoreRowNum = td.attr('rowSpan');
-        if (typeof(ignoreRowNum) == 'undefined')
-          ignoreRowNum = 0;
-        else
-          ignoreRowNum = parseInt(ignoreRowNum) - 1;
-      }
-    });
-    HeadHeight += 2;
-     
-    divTableHead.css("height", HeadHeight);
-    divTableFix != null && divTableFix.css("height", HeadHeight);
-  }
-   
-  if (freezeColumnNum > 0) {
-    var ColumnsWidth = 0;
-    var ColumnsNumber = 0;
-    $("#" + tableId + "_tableColumn tr:eq(" + freezeRowNum + ")").find("td:lt(" + freezeColumnNum + "), th:lt(" + freezeColumnNum + ")").each(function () {
-      if (ColumnsNumber >= freezeColumnNum)
-        return;
-         
-      ColumnsWidth += $(this).outerWidth(true);
-       
-      ColumnsNumber += $(this).attr('colSpan') ? parseInt($(this).attr('colSpan')) : 1;
-    });
-    ColumnsWidth += 2;
- 
-    divTableColumn.css("width", ColumnsWidth);
-    divTableFix != null && divTableFix.css("width", ColumnsWidth);
-  }
-   
-  divTableData.scroll(function () {
-    divTableHead != null && divTableHead.scrollLeft(divTableData.scrollLeft());
-     
-    divTableColumn != null && divTableColumn.scrollTop(divTableData.scrollTop());
-  });
-   
-  divTableFix != null && divTableFix.css({ "overflow": "hidden", "position": "absolute", "z-index": "50" });
-  divTableHead != null && divTableHead.css({ "overflow": "hidden", "width": width - 17, "position": "absolute", "z-index": "45" });
-  divTableColumn != null && divTableColumn.css({ "overflow": "hidden", "height": height - 17, "position": "absolute", "z-index": "40" });
-  divTableData.css({ "overflow": "scroll", "width": width, "height": height, "position": "absolute" });
-   
-  divTableFix != null && divTableFix.offset(divTableLayout.offset());
-  divTableHead != null && divTableHead.offset(divTableLayout.offset());
-  divTableColumn != null && divTableColumn.offset(divTableLayout.offset());
-  divTableData.offset(divTableLayout.offset());
-}
- 
-/*
- * 调整锁定表的宽度和高度，这个函数在resize事件中调用
- * 
- * 参数定义
- *   table - 要锁定的表格元素或者表格ID
- *   width - 表格的滚动区域宽度
- *   height - 表格的滚动区域高度
- */
-function adjustTableSize(table, width, height) {
-  var tableId;
-  if (typeof(table) == 'string')
-    tableId = table;
-  else
-    tableId = table.attr('id');
-   
-  $("#" + tableId + "_tableLayout").width(width).height(height);
-  $("#" + tableId + "_tableHead").width(width - 17);
-  $("#" + tableId + "_tableColumn").height(height - 17);
-  $("#" + tableId + "_tableData").width(width).height(height);
-}
- 
-function pageHeight() {
-  if ($.browser.msie) {
-    return document.compatMode == "CSS1Compat" ? document.documentElement.clientHeight : document.body.clientHeight;
-  } else {
-    return self.innerHeight;
-  }
-};
- 
-//返回当前页面宽度
-function pageWidth() {
-  if ($.browser.msie) {
-    return document.compatMode == "CSS1Compat" ? document.documentElement.clientWidth : document.body.clientWidth;
-  } else {
-    return self.innerWidth;
-  }
-};
- 
-$(document).ready(function() {
-  var table = $("table");
-  var tableId = table.attr('id');
-  var freezeRowNum = table.attr('freezeRowNum');
-  var freezeColumnNum = table.attr('freezeColumnNum');
-   
-  if (typeof(freezeRowNum) != 'undefined' || typeof(freezeColumnNum) != 'undefined') {
-    freezeTable(table, freezeRowNum || 0, freezeColumnNum || 0, pageWidth(), pageHeight());
-     
-    var flag = false;
-    $(window).resize(function() {
-      if (flag) 
-        return ;
-       
-      setTimeout(function() { 
-        adjustTableSize(tableId, pageWidth(), pageHeight()); 
-        flag = false; 
-      }, 100);
-       
-      flag = true;
-    });
-  }
-});
-    </script>
+            
+            <div class="fixed-table_body-wraper">
+                <table class="fixed-table_body" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                        <tr>
+                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
+                            <td class="w-120"><div class="table-cell">王小虎</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 固定列 end -->
+    </div>
+  <div class="text-c">
+    <select class="select_search">
+      <option value="">项目编号</option>
+      <option value="">项目名称</option>
+      <option value="">子项编号</option>
+      <option value="">子项名称</option>
+      <option value="">项目负责人</option>
+    </select>
+    <input type="text" class="input-text " style="width:120px;">
+    <button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+  </div>
+  <div class="tableMain">
+    <table border="1" class="tab_css_1">
+      <tr align="center">
+        <th class="table_width1 table_freeze">序号</th>
+        <th class="table_width2 ">项目编号</th>
+        <th class="table_width2 ">项目名称</th>
+        <th width="130px">子项编号</th>
+        <th width="130px">子项名称</th>
+        <th width="130px">商务总监</th>
+        <th width="130px">设计总监</th>
+        <th width="130px">项目负责人</th>
+        <th width="130px">月报维护人</th>
+        <th width="130px">项目来源</th>
+        <th width="130px">省份</th>
+        <th width="130px">城市</th>
+        <th width="130px">项目等级</th>
+        <th width="130px">合同签订状态</th>
+        <th width="130px">合同签订时间</th>
+        <th width="150px">产值前置面积类型</th>
+        <th width="150px">产值前置面积(万方)</th>
+        <th width="150px">子项原始合同额(万)</th>
+        <th width="150px">产值前置面积(万方)</th>
+        <th width="150px">子项原始合同额(万)</th>
+
+
+      </tr>
+      <tr class="tr_css" align="center">
+        <td>1</td>
+        <td width="80">
+          <input type="text" class="project_num">
+        </td>
+        <td width="130">
+          <input type="text" class="project_num">
+        </td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+        <td><input type="text" class="project_num"></td>
+      </tr>
+    </table>
+  </div>
+  <!-- <script type="text/javascript" src="../../js/jquery-1.8.2.js"></script> -->
+  <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
+  <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script>
+  <script src="../../js/fixed-table.js"></script>
+  <script type="text/javascript" src="../../js/yuebao/yuebao.js"></script>
+
 </body>
 
 </html>
