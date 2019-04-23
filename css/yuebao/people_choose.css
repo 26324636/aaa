@@ -1,0 +1,18 @@
+.text-c{
+    height: 20px;
+}
+.panel-header {
+    border-bottom: solid 1px transparent;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: -1px;
+}
+.panel-body {
+    padding: 5px;
+}
+.table th, .table td {
+    /* padding: 2px; */
+    line-height: 10px;
+    word-break: break-all;
+}

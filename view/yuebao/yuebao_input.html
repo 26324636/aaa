@@ -1,282 +1,83 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="renderer" content="webkit|ie-comp|ie-stand">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" />
-  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" />
-  <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
-  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
-  <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" />
-  <link rel="stylesheet" href="../../css/yuebao/yuebao.css">
-  <title>月报输入</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TableFreeze表格冻结</title>
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/h-ui/css/H-ui.min.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/H-ui.admin.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/h-ui.admin/css/style.css" /> -->
+    <link rel="stylesheet" href="../../css/yuebao/yuebao.css">
+    
 </head>
 
 <body>
-    <div class="fixed-table-box row-col-fixed">
-        <!-- 表头 start -->
-        <div class="fixed-table_header-wraper">
-            <table class="fixed-table_header" cellspacing="0" cellpadding="0" border="0">
-                <thead>
-                    <tr>
-                        <th class="w-150" data-fixed="true"><div class="table-cell">日期</div></th>
-                        <th class="w-120" data-fixed><div class="table-cell">姓名</div></th>
-                        <th class="w-120"><div class="table-cell">省份</div></th>
-                        <th class="w-120"><div class="table-cell">市区</div></th>
-                        <th class="w-300"><div class="table-cell">地址</div></th>
-                        <th class="w-120"><div class="table-cell">邮编</div></th>
-                        <th class="w-100"><div class="table-cell">操作</div></th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-        <!-- 表头 end -->
-        <!-- 表格内容 start -->
-        <div class="fixed-table_body-wraper">
-            <table class="fixed-table_body" cellspacing="0" cellpadding="0" border="0">
-                <tbody>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                        <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        <td class="w-120"><div class="table-cell">上海</div></td>
-                        <td class="w-120"><div class="table-cell">普陀区</div></td>
-                        <td class="w-300"><div class="table-cell">上海市普陀区金沙江路 1518 路</div></td>
-                        <td class="w-120"><div class="table-cell">200333</div></td>
-                        <td class="w-100">
-                            <div class="table-cell">
-                                <a href="###">查看</a>
-                                <a href="###">编辑</a>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- 表格内容 end -->
-
-        <!-- 固定列 start -->
-        <div class="fixed-table_fixed fixed-table_fixed-left">
-            <div class="fixed-table_header-wraper">
-                <table class="fixed-table_header" cellspacing="0" cellpadding="0" border="0">
-                    <thead>
-                        <tr>
-                            <th class="w-150"><div class="table-cell">日期</div></th>
-                            <th class="w-120"><div class="table-cell">姓名</div></th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-            
-            <div class="fixed-table_body-wraper">
-                <table class="fixed-table_body" cellspacing="0" cellpadding="0" border="0">
-                    <tbody>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                        <tr>
-                            <td class="w-150"><div class="table-cell"> 2016-05-03</div></td>
-                            <td class="w-120"><div class="table-cell">王小虎</div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- 固定列 end -->
+    <div class="text-c">
+        <select class="select_search">
+            <option value="">项目编号</option>
+            <option value="">项目名称</option>
+            <option value="">子项编号</option>
+            <option value="">子项名称</option>
+            <option value="">项目负责人</option>
+        </select>
+        <input type="text" class="input-text " style="width:120px;">
+        <button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
     </div>
-  <div class="text-c">
-    <select class="select_search">
-      <option value="">项目编号</option>
-      <option value="">项目名称</option>
-      <option value="">子项编号</option>
-      <option value="">子项名称</option>
-      <option value="">项目负责人</option>
-    </select>
-    <input type="text" class="input-text " style="width:120px;">
-    <button type="submit" class="btn btn-success" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
-  </div>
-  <div class="tableMain">
-    <table border="1" class="tab_css_1">
-      <tr align="center">
-        <th class="table_width1 table_freeze">序号</th>
-        <th class="table_width2 ">项目编号</th>
-        <th class="table_width2 ">项目名称</th>
-        <th width="130px">子项编号</th>
-        <th width="130px">子项名称</th>
-        <th width="130px">商务总监</th>
-        <th width="130px">设计总监</th>
-        <th width="130px">项目负责人</th>
-        <th width="130px">月报维护人</th>
-        <th width="130px">项目来源</th>
-        <th width="130px">省份</th>
-        <th width="130px">城市</th>
-        <th width="130px">项目等级</th>
-        <th width="130px">合同签订状态</th>
-        <th width="130px">合同签订时间</th>
-        <th width="150px">产值前置面积类型</th>
-        <th width="150px">产值前置面积(万方)</th>
-        <th width="150px">子项原始合同额(万)</th>
-        <th width="150px">产值前置面积(万方)</th>
-        <th width="150px">子项原始合同额(万)</th>
+    <div class="content">
+        <table id="tableMain" border="1">
+            <tr class='tabTh'>
+                <td class="w-80">序号</td>
+                <td class="w-120">项目编号</td>
+                <td class="w-200">项目名称</td>
+                <td class="w-120">子项编号</td>
+                <td class="w-200">子项名称</td>
+                <td class="w-150">商务总监</td>
+                <td class="w-120">设计总监</td>
+                <td class="w-120">项目负责人</td>
+                <td class="w-120">月报维护人</td>
+                <td class="w-150">项目来源</td>
+                <td class="w-120">省份</td>
+                <td class="w-120">城市</td>
+                <td class="w-120">项目等级</td>
+                <td class="w-120">合同签订状态</td>
+                <td class="w-150">合同签订时间</td>
+                <td class="w-120">产值前置面积类型</td>
+                <td class="w-120">产值前置面积(万方)</td>
+                <td class="w-120">子项原始合同额(万)</td>
+                <td class="w-120">产值前置面积(万方)</td>
+                <td class="w-120">子项原始合同额(万)</td>
+            </tr>
+            <tr align='center'>
+                <td>01</td>
+                <td><input type="text" class="project_input w-120"></td>
+                <td><input type="text" class="project_input w-200" ></td>
+                <td><input type="text" class="project_input w-120"></td>
+                <td><input type="text" class="project_input w-200"></td>
+                <td><div class=" w-140 buss_people" >请选择</input></td>
+                <td>1</td>
+                <td>it管理员</td>
+            </tr>
 
+        </table>
+    </div>
+    <hr>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../../js/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="../../js/TableFreeze.js"></script>
+    <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
+	<script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script>
+    <script type="text/javascript" src="../../lib/layer/2.4/layer.js"></script>
+    <script src="../../js/yuebao/yuebao.js"></script>
+    <script type='text/javascript'>
+        // window.location.reload();
+        
+    </script>
 
-      </tr>
-      <tr class="tr_css" align="center">
-        <td>1</td>
-        <td width="80">
-          <input type="text" class="project_num">
-        </td>
-        <td width="130">
-          <input type="text" class="project_num">
-        </td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-        <td><input type="text" class="project_num"></td>
-      </tr>
-    </table>
-  </div>
-  <!-- <script type="text/javascript" src="../../js/jquery-1.8.2.js"></script> -->
-  <script type="text/javascript" src="../../lib/jquery/1.9.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../../static/h-ui/js/H-ui.min.js"></script>
-  <script type="text/javascript" src="../../static/h-ui.admin/js/H-ui.admin.js"></script>
-  <script src="../../js/fixed-table.js"></script>
-  <script type="text/javascript" src="../../js/yuebao/yuebao.js"></script>
 
 </body>
 

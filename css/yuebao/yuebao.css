@@ -1,194 +1,103 @@
-.fixed-table-box{
-    width: 800px;
-    margin: 50px auto;
+.text-c{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.fixed-table_body-wraper{
-    /* height: 260px; */
+.select_search{
+    width: 10%;
+    height: 28px;
 }
-.fixed-table-box>.fixed-table_body-wraper{/*内容了表格主体内容有纵向滚动条*/
-    max-height: 260px;
+.input-text{
+    font-size: 14px;
+    height: 22px;
+    /* padding: 4px; */
+}
+.btn-success{
+    margin-top: -1px;
+    color: #fff;
+    background-color: #5eb95e;
+    border-color: #5eb95e;
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 400;
+    white-space: nowrap;
+    vertical-align: middle;
+    -moz-padding-start: npx;
+    -moz-padding-end: npx;
+    border: solid 1px #ddd;
+    width: auto;
+    font-size: 10px;
+    height: 30px;
+    transition: background-color .1s linear;
+}
+.content {
+    overflow:auto;
+    /* overflow-x: scroll; */
+    width: 100%;
+    padding: 0px;
+    /* margin-left: 2%;  */
+}
+#tableMain{
+    width: 150%;
+}
+table {
+    empty-cells: show;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: 宋体;
+    font-size: 10pt;
+    border: 1px rgb(221, 221, 221) solid;
+    background-color: white;
 }
 
-.fixed-table_fixed>.fixed-table_body-wraper{/*为了让两侧固定列能够同步表格主体内容滚动*/
-    max-height: 240px;
+table td {
+    height: 30px;
+    text-align: center;
+    border: 1px rgb(221, 221, 221) solid;
 }
 
-.w-150{
-    width: 150px;
+table .tabTh {
+    font-weight: bold;
+    background-color: #f5fafe;
 }
-.w-120{
-    width: 120px;
-}
-.w-300{
-    width: 300px;
+.w-80{
+    width: 80px;
 }
 .w-100{
     width: 100px;
 }
-body{
-    margin: 0;
-    padding: 0;
+.w-120{
+    width: 120px;
 }
-.fixed-table-box table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  box-sizing: border-box;
+.w-150{
+    width: 150px;
 }
-.fixed-table-box tr,
-.fixed-table-box td,
-.fixed-table-box th {
-  box-sizing: border-box;
+.w-140{
+    width: 140px;
 }
-
-.fixed-table-box{
-    position: relative;
-    font-size: 14px;
-    line-height: 1.42858;
-    border: 1px solid #dfe6ec;
-    border-bottom: 0;
-    border-right: 0;
-    overflow: hidden;
+.w-200{
+    width: 180px;
 }
-.fixed-table-box:before{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: " ";
-    width: 100%;
-    height: 1px;
-    background-color: #dfe6ec;
+.w-250{
+    width: 250px;
 }
-.fixed-table-box:after{
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: " ";
-    width: 1px;
-    height: 100%;
-    background-color: #dfe6ec;
+.project_input{
+    height: 28px;
+    box-sizing: border-box;
+    border: solid 1px #ddd;
+    -webkit-transition: all .2s linear 0s;
+    -moz-transition: all .2s linear 0s;
+    -o-transition: all .2s linear 0s;
+    transition: all .2s linear 0s;
 }
-.fixed-table-box .fixed-table_header,
-.fixed-table-box .fixed-table_body{
-    width: auto;
+.project_input:disabled{
+    background: #fff;
+    cursor: pointer;
 }
-.fixed-table-box table{
-    background-color: #fff;
-    border: 0;
+.buss_people{
+    text-align: center;
+    cursor: pointer;
+    color: #C1C1C1;
 }
-.fixed-table-box th,
-.fixed-table-box td{
-    position: relative;
-    text-align: left;
-    padding: 5px 0;
-    border: 1px solid #dfe6ec;
-}
-.fixed-table-box .table-cell{
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    word-break: break-all;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-left: 15px;
-}
-/* 表头 start */
-.fixed-table-box>.fixed-table_header-wraper{
-    overflow: hidden;
-}
-.fixed-table-box .fixed-table_header.fixed-header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-.fixed-table-box .fixed-table_header tr{
-    background-color: #eef1f6;
-}
-.fixed-table-box .fixed-table_header th{
-    color: #1f2d3d;
-    border-top: 0;
-    border-left: 0;
-}
-/* 表头 end */
-
-/*表格内容 start*/
-.fixed-table-box .fixed-table_body td{
-    border-top: 0;
-    border-left: 0;
-}
-.fixed-table-box .fixed-table_body tr.rowHover{
-    background-color: #eef1f6;
-}
-/*表格内容 end*/
-
-/* 行固定表格 start*/
-.fixed-table-box.head-fixed .fixed-table_body-wraper{
-    overflow-y: auto;
-}
-.fixed-table-box.head-fixed .fixed-table_header,
-.fixed-table-box.head-fixed .fixed-table_body{
-    width: 100%;
-}
-/* 行固定表格 end*/
-
-/* 列固定表格 start */
-.fixed-table-box.col-fixed{
-    /* overflow-x: auto; */
-    border-right: 1px solid #eef1f6;
-}
-.fixed-table-box.col-fixed:after{
-    display: none;
-}
-.fixed-table-box.col-fixed .fixed-table_header-wraper{
-    /*设置它为overflow: hidden的目的是为了在拖动.fixed-table-box.col-fixed .fixed-table_body-wraper
-    的时候可以同步的拖动.fixed-table-box.col-fixed .fixed-table_header-wraper*/
-    overflow: hidden;
-}
-.fixed-table-box.col-fixed .fixed-table_body-wraper{
-    overflow-x: auto;
-}
-/* 列固定表格 end */
-
-/* 固定列 start */
-.fixed-table_fixed{
-    position: absolute;
-    top: 0;
-    z-index: 5;
-    background-color: #fff;
-    overflow: hidden;
-}
-.fixed-table_fixed-left{
-    left: 0;
-    box-shadow: 1px -1px 8px 1px #d3d4d6;
-}
-.fixed-table_fixed-right{
-    right: 0;
-    /* border-left: 1px solid #dfe6ec\0; */
-    box-shadow: -2px -1px 8px 1px #d3d4d6;
-}
-.fixed-table_fixed .fixed-table_header-wraper,
-.fixed-table_fixed .fixed-table_body-wraper{
-    overflow-y: hidden;
-}
-.fixed-table_fixed.fixed-table_fixed-right td{
-    border-right: none;
-    border-left: 1px solid #dfe6ec;
-}
-/* 固定列 end */
-
-/* 固定列和固定表头 start */
-.fixed-table-box.row-col-fixed>.fixed-table_body-wraper{
-    overflow: auto;
-}
-
-.fixed-table-box_fixed-right-patch{
-    /*右上角的遮罩，如果少了这块在右边有固定列并且表格内容右侧有滚动条时会出现镂空的效果*/
-    background-color: #eef1f6;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-/* 固定列和固定表头 end */
